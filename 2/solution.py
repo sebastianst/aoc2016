@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 input = open('input', 'r')
 
 x,y,code = 2,1,''
