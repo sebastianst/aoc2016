@@ -7,9 +7,7 @@ pad = {(0,-2): 1,
         (-1,-1): 2, (0,-1): 3, (1,-1): 4,
         (-1,1): 'A', (0,1): 'B', (1,1): 'C',
         (0,2): 'D'}
-
-for i in range(-2,3):
-    pad[(i,0)] = i+7
+pad.update({(i,0): i+7 for i in range(-2,3)}) # middle row
 
 for line in input:
     for m in line:
