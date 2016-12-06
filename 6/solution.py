@@ -2,9 +2,7 @@
 code, code2 = '', ''
 
 for col in zip(*open('input', 'r').readlines()):
-    counts = sorted([ (col.count(x), x) for x in set(col) ])
-    code += counts[-1][1]
-    code2 += counts[0][1]
+    code += max(set(col), key=col.count)
+    code2 += min(set(col), key=col.count)
 
-print(code[:-1])
-print(code2[:-1])
+print(code, code2, sep='')
