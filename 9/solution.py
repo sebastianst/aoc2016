@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import re
 output = ''
-inp = open('input', 'r').readline()
+inp = open('input', 'r').readline()[:-1] # omit \n
 while len(inp):
     c=inp[0]
     if c != '(':
@@ -15,4 +15,3 @@ while len(inp):
         inp = inp[int(a):]
 
 print(len(output))
-# 404515 70187 too high
