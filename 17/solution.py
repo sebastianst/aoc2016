@@ -23,14 +23,19 @@ class Loc():
         return (self.pos.real - self.pos.imag) - len(self.path)
 
 front = [Loc()]
+sols = []
 while True:
     if not front:
-        print("There's no path to the vault :(")
+        print("All paths exhausted.")
         break
     front = sorted(front, key=Loc.cost)
     l = front.pop()
     if l.pos == 3-3j:
-        print(l.path)
-        break
-    for f in l.open_neigh():
-        front.append(f)
+        sols.append(l)
+        print("Found path of length %i" % len(l.path))
+    else:
+        for f in l.open_neigh():
+            front.append(f)
+
+print('Shortest path: %s' % sols[0].path)
+print('Longest path length: %i' % len(sols[-1].path))
