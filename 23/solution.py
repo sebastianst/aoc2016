@@ -18,6 +18,9 @@ while p < len(I):
         x = r[x] if x in 'abcd' else int(x)
         if ins == 'cpy':
             if y in r: r[y] = x # tgl may invalidate instruction
+        # 'mul x y' sets register y to r[y] * x/r[x] (new instruction for part 2)
+        elif ins == 'mul':
+            r[y] *= x
         elif ins == 'jnz':
             y = r[y] if y in 'abcd' else int(y)
             if x: p += y-1
