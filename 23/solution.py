@@ -1,6 +1,12 @@
 #!/usr/bin/env python
-r,p,sw={'a':7,'b':0,'c':0,'d':0,},0,{'inc':1,'dec':-1}
-I = [x[:-1].split() for x in open('input', 'r').readlines()]
+import argparse
+parser = argparse.ArgumentParser(description='Solution to puzzle 23 of the Advent of Code 2016')
+parser.add_argument('-a', type=int, default=7)
+parser.add_argument('-i', '--input', default='input')
+args = parser.parse_args()
+
+r,p,sw={'a':args.a,'b':0,'c':0,'d':0,},0,{'inc':1,'dec':-1}
+I = [x.split() for x in open(args.input, 'r').readlines()]
 
 while p < len(I):
     cmd = I[p]
